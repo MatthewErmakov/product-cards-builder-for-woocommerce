@@ -1,0 +1,14 @@
+.pccw_taxonomy_terms {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    > * {
+        display: block;
+        box-sizing: border-box;
+        
+        &:last-of-type {
+            margin-right: 0;
+        }
+    }
+}

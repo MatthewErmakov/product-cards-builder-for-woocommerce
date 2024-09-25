@@ -1,0 +1,122 @@
+@use 'sass:math';
+
+.pccw_rating {
+
+    &.caption {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: black;
+        font-size: 14px;
+
+        &.left {
+            flex-direction: row-reverse;
+            align-items: end;
+        }
+
+        &.right {
+            flex-direction: row;
+            align-items: end;
+        }
+
+        &.top {
+            flex-direction: column-reverse;
+        }
+
+        &.bottom {
+            flex-direction: column;
+        }
+    }
+    .stars {
+        display: flex;
+        gap: 5px;
+        width: fit-content;
+        margin: auto;
+        flex-wrap: wrap;
+
+        mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='15' viewBox='0 0 16 15' fill='none'%3E%3Cpath d='M8 0.5L9.79611 6.02786H15.6085L10.9062 9.44427L12.7023 14.9721L8 11.5557L3.29772 14.9721L5.09383 9.44427L0.391548 6.02786H6.20389L8 0.5Z' fill='%23D4DBE0'/%3E%3C/svg%3E");
+        mask-size: 25px 25px;
+        background: rgb(192, 192, 192);
+        height: 25px;
+        width: 125px;
+        position: relative;
+
+        &::after {
+            content: '';
+            width: 0;
+            background-size: 30px;
+            height: 25px;
+            background: gold;
+            left: 0;
+            position: absolute;
+        }
+        
+        &.rating-5::after {
+            width: 125px;
+        }
+        
+        &.rating-4-75::after {
+            width: 118px;
+        }
+        
+        &.rating-4-5::after {
+            width: 113px;
+        }
+        
+        &.rating-4-25::after {
+            width: 107px;
+        }
+        
+        &.rating-4::after {
+            width: 100px;
+        }
+        
+        &.rating-3-75::after {
+            width: 92px;
+        }
+        
+        &.rating-3-5::after {
+            width: 88px;
+        }
+        
+        &.rating-3-25::after {
+            width: 83px;
+        }
+        
+        &.rating-3::after {
+            width: 75px;
+        }
+        
+        &.rating-2-75::after {
+            width: 67px;
+        }
+        
+        &.rating-2-5::after {
+            width: 63px;
+        }
+        
+        &.rating-2-25::after {
+            width: 59px;
+        }
+        
+        &.rating-2::after {
+            width: 51px;
+        }
+        
+        &.rating-1-75::after {
+            width: 41px;
+        }
+        
+        &.rating-1-5::after {
+            width: 37px;
+        }
+        
+        &.rating-1-25::after {
+            width: 34px;
+        }
+        
+        &.rating-1::after {
+            width: 25px;
+        }
+    }
+}

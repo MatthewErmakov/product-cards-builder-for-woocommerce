@@ -1,0 +1,175 @@
+/**
+ * Misc
+ */
+[class^=pccw_] {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+[class^=pccw_] * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/**
+ * Shortcodes
+ */
+.pccw_row {
+  display: grid;
+}
+
+.woocommerce li.product form.cart[class*=pccw_add_to_cart] {
+  display: flex;
+  gap: 15px;
+}
+.woocommerce li.product form.cart[class*=pccw_add_to_cart]::before, .woocommerce li.product form.cart[class*=pccw_add_to_cart]::after {
+  display: none;
+}
+.woocommerce li.product form.cart[class*=pccw_add_to_cart] button, .woocommerce li.product form.cart[class*=pccw_add_to_cart] a {
+  display: block;
+}
+.woocommerce li.product form.cart[class*=pccw_add_to_cart] * {
+  margin: 0;
+  padding: 0;
+}
+.woocommerce li.product form.cart[class*=pccw_add_to_cart] div.quantity {
+  margin: 0;
+  padding: 0;
+}
+
+.woocommerce ul.products li.product .pccw_product_heading {
+  margin-bottom: 0;
+}
+
+[class*=pccw_product_price] .amount {
+  color: inherit;
+}
+
+.pccw_taxonomy_terms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.pccw_taxonomy_terms > * {
+  display: block;
+  box-sizing: border-box;
+}
+.pccw_taxonomy_terms > *:last-of-type {
+  margin-right: 0;
+}
+
+.pccw_rating.caption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+  font-size: 14px;
+}
+.pccw_rating.caption.left {
+  flex-direction: row-reverse;
+  align-items: end;
+}
+.pccw_rating.caption.right {
+  flex-direction: row;
+  align-items: end;
+}
+.pccw_rating.caption.top {
+  flex-direction: column-reverse;
+}
+.pccw_rating.caption.bottom {
+  flex-direction: column;
+}
+.pccw_rating .stars {
+  display: flex;
+  gap: 5px;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: auto;
+  flex-wrap: wrap;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='15' viewBox='0 0 16 15' fill='none'%3E%3Cpath d='M8 0.5L9.79611 6.02786H15.6085L10.9062 9.44427L12.7023 14.9721L8 11.5557L3.29772 14.9721L5.09383 9.44427L0.391548 6.02786H6.20389L8 0.5Z' fill='%23D4DBE0'/%3E%3C/svg%3E");
+          mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='15' viewBox='0 0 16 15' fill='none'%3E%3Cpath d='M8 0.5L9.79611 6.02786H15.6085L10.9062 9.44427L12.7023 14.9721L8 11.5557L3.29772 14.9721L5.09383 9.44427L0.391548 6.02786H6.20389L8 0.5Z' fill='%23D4DBE0'/%3E%3C/svg%3E");
+  -webkit-mask-size: 25px 25px;
+          mask-size: 25px 25px;
+  background: rgb(192, 192, 192);
+  height: 25px;
+  width: 125px;
+  position: relative;
+}
+.pccw_rating .stars::after {
+  content: "";
+  width: 0;
+  background-size: 30px;
+  height: 25px;
+  background: gold;
+  left: 0;
+  position: absolute;
+}
+.pccw_rating .stars.rating-5::after {
+  width: 125px;
+}
+.pccw_rating .stars.rating-4-75::after {
+  width: 118px;
+}
+.pccw_rating .stars.rating-4-5::after {
+  width: 113px;
+}
+.pccw_rating .stars.rating-4-25::after {
+  width: 107px;
+}
+.pccw_rating .stars.rating-4::after {
+  width: 100px;
+}
+.pccw_rating .stars.rating-3-75::after {
+  width: 92px;
+}
+.pccw_rating .stars.rating-3-5::after {
+  width: 88px;
+}
+.pccw_rating .stars.rating-3-25::after {
+  width: 83px;
+}
+.pccw_rating .stars.rating-3::after {
+  width: 75px;
+}
+.pccw_rating .stars.rating-2-75::after {
+  width: 67px;
+}
+.pccw_rating .stars.rating-2-5::after {
+  width: 63px;
+}
+.pccw_rating .stars.rating-2-25::after {
+  width: 59px;
+}
+.pccw_rating .stars.rating-2::after {
+  width: 51px;
+}
+.pccw_rating .stars.rating-1-75::after {
+  width: 41px;
+}
+.pccw_rating .stars.rating-1-5::after {
+  width: 37px;
+}
+.pccw_rating .stars.rating-1-25::after {
+  width: 34px;
+}
+.pccw_rating .stars.rating-1::after {
+  width: 25px;
+}
+
+.pccw_attributes {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+}
+.pccw_attributes .pccw_attribute-group {
+  display: flex;
+  -moz-column-gap: 5px;
+       column-gap: 5px;
+  width: -moz-fit-content;
+  width: fit-content;
+  flex-wrap: wrap;
+  justify-content: center;
+}

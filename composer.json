@@ -1,0 +1,23 @@
+{
+    "name": "mattwp/forms",
+    "version": "1.0.0",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Matthew Yermakov",
+            "email": "mazdaraser.91@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "email": "mazdaraser.91@gmail.com"
+    },
+    "require": {
+        "php": ">=7.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "PCCW\\App\\": "app/"
+        }
+    }
+}

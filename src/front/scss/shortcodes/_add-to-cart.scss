@@ -1,0 +1,24 @@
+.woocommerce {
+    li.product form.cart[class*="pccw_add_to_cart"] {
+        display: flex;
+        gap: 15px;
+            
+        &::before, &::after {
+            display: none;
+        }
+            
+        button, a {
+            display: block;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div.quantity {
+            margin: 0;
+            padding: 0;
+        }
+    }
+}
