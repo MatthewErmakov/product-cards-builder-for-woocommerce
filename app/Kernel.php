@@ -12,11 +12,14 @@ class Kernel {
     public $path;
     public $url;
 
+    private static $instance;
+
     public function run() {
         add_action( 'woocommerce_init', [$this, 'register_controllers'] );
     }
 
-    public function __construct( 
+    // Constructor should remain protected
+    protected function __construct( 
         string $plugin_version, 
         string $plugin_text_domain, 
         string $plugin_path, 
@@ -26,6 +29,20 @@ class Kernel {
         $this->text_domain = $plugin_text_domain;
         $this->path = $plugin_path;
         $this->url = $plugin_url;
+    }
+
+    // Static method to get the instance
+    public static function get_instance(
+        string $plugin_version = '', 
+        string $plugin_text_domain = '', 
+        string $plugin_path = '', 
+        string $plugin_url = '' 
+    ): Kernel {
+        if (self::$instance === null) {
+            self::$instance = new static($plugin_version, $plugin_text_domain, $plugin_path, $plugin_url);
+        }
+        
+        return self::$instance;
     }
 
     /**

@@ -8,7 +8,12 @@ class StylesGeneratorService {
 
     public function __construct( Kernel $plugin, string $selector, array $styles ) {
         $this->plugin = $plugin;
-        $this->selector = $selector;
+        $this->selector = sanitize_text_field( $selector );
+        
+        foreach ( $styles as $key => $style ) {
+            $styles[$key] = sanitize_text_field( $style );
+        }
+
         $this->styles = $styles;
     }
 

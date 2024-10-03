@@ -27,6 +27,12 @@ $assets_dir: "/wp-content/plugins/product-cards-customiser-for-woocommerce/publi
             height: 500px;
         }
 
+        .preview-wrapper > h3 {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+        }    
+
         .preview-block {
             width: 100%;
             min-height: 500px;
@@ -34,6 +40,12 @@ $assets_dir: "/wp-content/plugins/product-cards-customiser-for-woocommerce/publi
             justify-content: center;
             align-items: center;
         }
+    }
+
+    .popup {
+        margin-left: 0;
+        padding-top: 7px;
+        padding-bottom: 7px;
     }
 
     .template-editor-inner {
@@ -57,6 +69,12 @@ $assets_dir: "/wp-content/plugins/product-cards-customiser-for-woocommerce/publi
             transform: translate(1px, 1px);
             transition: .3s;
             box-shadow: 0px 0px 0px silver;
+        }
+
+        &[disabled] {
+            opacity: 0.5;
+            user-select: none;
+            pointer-events: none;
         }
     }
     
