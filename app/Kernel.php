@@ -79,9 +79,10 @@ class Kernel {
         wp_enqueue_style( 'product-cards-customiser' );
 
         wp_localize_script( 'product-cards-customiser-admin', 'pccw', [
-            'ajax_url' => admin_url( 'admin-ajax.php' ),
-            'nonce_preview'    => wp_create_nonce( 'pccw_preview' ),
-            'nonce_save_template'    => wp_create_nonce( 'pccw_save_template' )
+            'ajax_url'                => admin_url( 'admin-ajax.php' ),
+            'nonce_preview'           => wp_create_nonce( 'pccw_preview' ),
+            'nonce_save_template'     => wp_create_nonce( 'pccw_save_template' ),
+            'nonce_activate_template' => wp_create_nonce( 'pccw_activate_template' )
         ]);
     }
 

@@ -97,15 +97,54 @@ jQuery(function($){
         if( $('.product-cards-customiser-inner').find('.popup').length === 0 ) {
           $('.product-cards-customiser-inner h1').after(`<div style="display: none" class="popup${response.data.status === 'saved' ? ' updated' : ' error'}">${response.data.message}</div>`);
           $('.product-cards-customiser-inner .popup').slideDown();
+
+          setTimeout(function(){
+            $('.product-cards-customiser-inner').find('.popup').slideUp();
+  
+            setTimeout( function () {
+              $('.product-cards-customiser-inner').find('.popup').remove();
+            }, 500 );
+          }, 2000);
         }
+      }
+    })
+  });
 
-        setTimeout(function(){
-          $('.product-cards-customiser-inner').find('.popup').slideUp();
+  $('#activate-template').on('click', function(){
+    $(this).toggleClass('active');
+    
+    let activateTemplateInput = $('input[name="activate-template"]');
 
-          setTimeout( function () {
-            $('.product-cards-customiser-inner').find('.popup').remove();
-          }, 500 );
-        }, 2000);
+    if ( $(this).hasClass('active') ) {
+      activateTemplateInput.val('yes');
+    } else {
+      activateTemplateInput.val('no');
+    }
+
+    let inputValue = activateTemplateInput.val();
+
+    $.ajax({
+      url: pccw.ajax_url,
+      method: 'POST',
+      data: {
+        action: 'pccw_activate_template',
+        activate_template: inputValue,
+        nonce: pccw.nonce_activate_template
+      },
+
+      success: function (response) {
+        if( $('.product-cards-customiser-inner').find('.popup').length === 0 ) {
+          $('.product-cards-customiser-inner h1').after(`<div style="display: none" class="popup${response.data.status === 'saved' ? ' updated' : ' error'}">${response.data.message}</div>`);
+          $('.product-cards-customiser-inner .popup').slideDown();
+
+          setTimeout(function(){
+            $('.product-cards-customiser-inner').find('.popup').slideUp();
+  
+            setTimeout( function () {
+              $('.product-cards-customiser-inner').find('.popup').remove();
+            }, 500 );
+          }, 2000);
+        }        
       }
     })
   });

@@ -20,6 +20,9 @@ class PluginPage extends Admin {
 
         add_action( 'wp_ajax_pccw_save_template', [$this, 'save_template'] );
         add_action( 'wp_ajax_nopriv_pccw_save_template', [$this, 'save_template'] );
+
+        add_action( 'wp_ajax_pccw_activate_template', [$this, 'activate_template'] );
+        add_action( 'wp_ajax_nopriv_pccw_activate_template', [$this, 'activate_template'] );
     }
 
     public function view() : void {
@@ -38,7 +41,11 @@ class PluginPage extends Admin {
             $i++;
         }
 
-        $this->render('admin/plugin-page', ['products' => $products], true);
+        $this->render('admin/plugin-page', [
+            'products'           => $products,
+            'preview_product_id' => (int) get_option( 'pccw_product_to_preview', false ),
+            'activate_template'  => get_option( 'pccw_activate_template', false )
+        ], true);
     }
 
     public function preview(): void
@@ -108,6 +115,52 @@ class PluginPage extends Admin {
                 'data' => [
                     'status' => 'not-saved',
                     'message' => __('Template was already saved.', 'pccw')
+                ]
+            ], 200 );
+        }
+    }
+
+    public function activate_template(): void
+    {
+        if ( 
+            empty( $_POST['nonce'] ) || 
+            ( ! empty( $_POST['nonce'] && ! wp_verify_nonce( $_POST['nonce'], 'pccw_activate_template' ) ) 
+        ) ) {
+            wp_send_json( [
+                'data' => [
+                    'status'  => 'not-saved',
+                    'message' => 'Nonce not verified'
+                ]
+            ], 401 );
+        }
+
+        if ( empty( $_POST['activate_template'] ) ) {
+            wp_send_json( [
+                'data' => [
+                    'status'  => 'not-saved',
+                    'message' => 'Data is empty'
+                ]
+            ], 200 );
+        }
+
+        $data = $_POST['activate_template'];
+
+        $was_updated = update_option( 'pccw_activate_template', $data );
+
+        if ( $was_updated ) {
+            $message = $data === 'yes' ? 'Template has been successfully activated.' : 'Template has been successfully deactivated.';
+
+            wp_send_json( [
+                'data' => [
+                    'status' => 'saved',
+                    'message' => $message
+                ]
+            ], 200 );
+        } else {
+            wp_send_json( [
+                'data' => [
+                    'status' => 'not-saved',
+                    'message' => 'Template hasn\'t been saved.'
                 ]
             ], 200 );
         }

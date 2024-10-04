@@ -9,7 +9,7 @@
 <div class="product-cards-customiser">
 	<div class="product-cards-customiser-inner">
 
-		<h1><?php echo __('Product Card Template Customiser') ?></h1>
+		<h1><?php echo __('Product Card Template Customiser', 'pccw') ?></h1>
 
 		<div class="wrapping-block">
 			<div id="template-editor" class="modal">
@@ -17,7 +17,14 @@
 					<h3><?php echo __('Editor', 'pccw') ?></h3>
 					<textarea name="template-data" id="template-data"><?php echo stripslashes( get_option( 'pccw_template_shortcode', '' ) ) ?></textarea>
 
-					<button type="button" id="save-template" disabled><?php echo __('Save Template', 'pccw') ?></button>
+					<h2 class="activate-template-wrapper">
+						<button type="button" id="save-template" disabled><?php echo __('Save Template', 'pccw') ?></button>
+						
+						<span><?php echo __('Activate Template', 'pccw') ?></span>
+						<div id="activate-template"<?php echo $activate_template === 'yes' ? ' class="active"' : '' ?>>
+							<input type="hidden" name="activate-template" value="<?php echo $activate_template ?>">
+						</div>
+					</h2>
 				</div>
 			</div>
 
@@ -25,8 +32,7 @@
 				<h3><?php echo __('Preview', 'pccw') ?>
 					<select name="pccw_preview_product">
 						<option><?php echo __('Choose a product', 'pccw') ?></option>
-						<?php 
-						$preview_product_id = (int)get_option( 'pccw_product_to_preview', false );
+						<?php
 						foreach ( $products as $product ) { 
 						?>
 							<option value="<?php echo $product['id'] ?>"<?php echo $preview_product_id === $product['id'] ? ' selected' : '' ?>><?php echo $product['label'] ?></option>
@@ -117,7 +123,7 @@
 						<code>style</code> (CSS style), 
 						<code>hover</code> (CSS style), 
 						<code>display_reviews_amount</code>(boolean),
-						<code>reviews_amount_location</code>(CSS style),
+						<code>reviews_amount_location</code>(top, right, bottom, left),
 						<code>hide_if_empty</code>(boolean)
 					</td>
 					<td>No</td>
@@ -143,7 +149,7 @@
 					<code>term_style</code> (CSS style), 
 					<code>term_hover</code> (CSS style), 
 					<code>count</code> (boolean), 
-					<code>links_target</code> (CSS style)
+					<code>links_target</code> (_blank, _self, _parent, _top, framename)
 				</td>
 				<td>No</td>
 			</tr>

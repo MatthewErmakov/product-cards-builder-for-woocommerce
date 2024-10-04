@@ -36,7 +36,7 @@ class ProductCard extends Front {
     public function rewrite_template ( $template )  {
         if ( function_exists( 'wc_current_theme_is_fse_theme' ) ) {
             if ( ! wc_current_theme_is_fse_theme() ) {
-                if ( stripos( $template, 'content-product.php' ) !== false ) {
+                if ( stripos( $template, 'content-product.php' ) !== false && get_option( 'pccw_activate_template', 'no' ) === 'yes' ) {
                     return $this->plugin->path . 'views/front/product-card.php';
                 }
             }

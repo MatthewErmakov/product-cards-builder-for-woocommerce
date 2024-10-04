@@ -36,6 +36,10 @@ class TaxonomyTerms extends Shortcode {
 
             $term_selector = '.pccw_taxonomy_terms';
 
+            if ( ! empty ( $id ) ) {
+                $term_selector .= '.pccw_taxonomy_terms-'.$id;
+            }
+
             if ( ! empty( $this->atts['links'] ) && $this->atts['links'] === 'true' ) {
                 $term_selector .= ' a';
             } else {
@@ -49,9 +53,9 @@ class TaxonomyTerms extends Shortcode {
             $styles_generator->generate();
         }
 
-        $result .= $this->output_taxonomy_terms( $product->get_id() );;
+        $result .= $this->output_taxonomy_terms( $product->get_id() );
 
-        return sprintf('<div class="pccw_taxonomy_terms%s">%s</div>', $id, $result);
+        return sprintf('<div class="pccw_taxonomy_terms%s">%s</div>', !empty($id) ? ' pccw_taxonomy_terms'.'-'.$id :'', $result);
     }
 
     protected function get_current_namespace(): string
@@ -108,18 +112,4 @@ class TaxonomyTerms extends Shortcode {
             }
         }
     }
-
-    // public function output_attribute_terms( int $product_id ): string
-    // {
-    //     $product = wc_get_product( $product_id );
-    //     $attributes = ! is_null( $product ) ? $product->get_attributes() : [];
-    //     $result = [];
-
-
-    //     foreach( $attributes as $key => $attribute ) {
-    //         $result[] = $attribute->get_data();
-    //     }
-
-    //     return $this->render('front/shortcodes/taxonomy/attributes', ['attributes' => $result]);
-    // }
 }

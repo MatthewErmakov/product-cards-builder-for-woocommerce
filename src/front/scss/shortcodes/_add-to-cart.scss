@@ -1,24 +1,36 @@
-.woocommerce {
-    li.product form.cart[class*="pccw_add_to_cart"] {
-        display: flex;
-        gap: 15px;
-            
-        &::before, &::after {
-            display: none;
-        }
-            
-        button, a {
-            display: block;
-        }
+body form.cart[class*="pccw_add_to_cart"] {
+    display: flex;
+    gap: 15px;
         
-        * {
-            margin: 0;
-            padding: 0;
-        }
+    &::before, &::after {
+        display: none;
+    }
+        
+    button, a {
+        display: block;
+        outline: none;
+        border: none;
+        font-family: inherit;
+        font-weight: 500;
+        font-size: 16px;
+        font-size: 1rem;
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+    }
 
-        div.quantity {
-            margin: 0;
-            padding: 0;
-        }
+    div.quantity {
+        margin: 0;
+        padding: 0;
+    }
+    
+    .quantity .qty {
+        width: 3.631em;
+        text-align: center;
+        min-height: 35px;
+        padding: .3em;
+        border-radius: 0;
     }
 }

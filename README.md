@@ -1,6 +1,10 @@
 # 🖌️ 🖼️ Product Cards Customiser for WooCommerce
 Allows users to customise their product cards on the online stores built with WooCommerce plugin.
 
+## Version 1.0.2
+* Added "Activate template" feature
+* Fixed bugs with "id" parameter for TaxonomyTerms class
+
 ## Version 1.0.1
 * Added "Save template" notifications
 * Added ability to choose a specific product for the preview in the admin panel

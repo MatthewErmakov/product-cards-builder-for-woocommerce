@@ -11,6 +11,10 @@
   margin: 0;
   padding: 0;
 }
+[class^=pccw_] *:focus {
+  outline: none;
+  box-shadow: none;
+}
 
 /**
  * Shortcodes
@@ -19,23 +23,36 @@
   display: grid;
 }
 
-.woocommerce li.product form.cart[class*=pccw_add_to_cart] {
+body form.cart[class*=pccw_add_to_cart] {
   display: flex;
   gap: 15px;
 }
-.woocommerce li.product form.cart[class*=pccw_add_to_cart]::before, .woocommerce li.product form.cart[class*=pccw_add_to_cart]::after {
+body form.cart[class*=pccw_add_to_cart]::before, body form.cart[class*=pccw_add_to_cart]::after {
   display: none;
 }
-.woocommerce li.product form.cart[class*=pccw_add_to_cart] button, .woocommerce li.product form.cart[class*=pccw_add_to_cart] a {
+body form.cart[class*=pccw_add_to_cart] button, body form.cart[class*=pccw_add_to_cart] a {
   display: block;
+  outline: none;
+  border: none;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 16px;
+  font-size: 1rem;
 }
-.woocommerce li.product form.cart[class*=pccw_add_to_cart] * {
+body form.cart[class*=pccw_add_to_cart] * {
   margin: 0;
   padding: 0;
 }
-.woocommerce li.product form.cart[class*=pccw_add_to_cart] div.quantity {
+body form.cart[class*=pccw_add_to_cart] div.quantity {
   margin: 0;
   padding: 0;
+}
+body form.cart[class*=pccw_add_to_cart] .quantity .qty {
+  width: 3.631em;
+  text-align: center;
+  min-height: 35px;
+  padding: 0.3em;
+  border-radius: 0;
 }
 
 .woocommerce ul.products li.product .pccw_product_heading {

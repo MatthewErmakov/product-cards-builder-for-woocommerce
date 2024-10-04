@@ -17,5 +17,8 @@
     "sass-loader": "^12.6.0",
     "webpack-cli": "^5.1.4"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@editorjs/code": "^2.9.2",
+    "@editorjs/editorjs": "^2.30.6"
+  }
 }
