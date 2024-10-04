@@ -44,7 +44,7 @@
 			
 		</div>
 
-		<h2><?php echo __('Documentation usage', 'pccw') ?></h2>
+		<h2><?php echo __('Documentation for use', 'pccw') ?></h2>
 
 		<div class="documentation">
 		<table>
