@@ -41,7 +41,7 @@ class TaxonomyTerms extends Shortcode {
             }
 
             if ( ! empty( $this->atts['links'] ) && $this->atts['links'] === 'true' ) {
-                $term_selector .= ' a';
+                $term_selector .= ' a, '. $term_selector . ' span';
             } else {
                 $term_selector .= ' span';
             }
@@ -68,6 +68,10 @@ class TaxonomyTerms extends Shortcode {
         $query = new TaxonomyDataHandlerService($this->plugin, $product_id, $this->atts);
 
         $data = $query->request();
+
+        if ( ! empty( $data['error'] ) && $data['error']['status'] === 'Not found' ) {
+            return '';
+        } 
 
         ob_start();
         $this->output_terms($data);

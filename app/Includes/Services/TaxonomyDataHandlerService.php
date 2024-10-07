@@ -39,15 +39,23 @@ class TaxonomyDataHandlerService {
         $filtered_array = [];
 
         foreach ($terms as $key => $term) {
-            $filtered_array[$key] = [
-                'slug' => $term->slug,
-                'name' => $term->name,
-                'count' => $this->get_term_products_count($term->slug),
-            ];
-
-            if ($this->links) {
-                $filtered_array[$key]['link'] = get_term_link($term, $taxonomy);
-            }    
+            if ( $term instanceof \WP_Term ) {
+                $filtered_array[$key] = [
+                    'slug' => $term->slug,
+                    'name' => $term->name,
+                    'count' => $this->get_term_products_count($term->slug),
+                ];
+    
+                if ($this->links) {
+                    /**
+                     * Added additional checking for the terms and have parents
+                     * but this parent couldn't exist
+                     */
+                    if ( $term->parent === 0 || ! ( get_term_link( $term->parent ) instanceof \WP_Error ) ) {
+                        $filtered_array[$key]['link'] = get_term_link($term->term_id, $taxonomy);
+                    }
+                }    
+            }  
         }
 
         // apply sorting

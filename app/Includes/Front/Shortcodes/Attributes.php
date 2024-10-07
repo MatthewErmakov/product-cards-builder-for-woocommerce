@@ -76,6 +76,10 @@ class Attributes extends Shortcode {
             }
         }
 
+        if ( $result === '' ) {
+            return $result;
+        }
+
         return sprintf( 
             '<div class="pccw_attributes%s">%s</div>', 
             isset( $atts['id'] ) ? ' pccw_attributes-' . $atts['id'] : '', 

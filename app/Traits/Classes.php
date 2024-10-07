@@ -33,7 +33,7 @@ trait Classes {
             $classname = $namespace . $classname;
 
             if ( class_exists( $classname ) && method_exists( $classname, $method_name ) ) {
-                ( new ( $classname ) ( $plugin ) )->actions();
+                (new $classname($plugin))->actions();
             }
         }
     }
