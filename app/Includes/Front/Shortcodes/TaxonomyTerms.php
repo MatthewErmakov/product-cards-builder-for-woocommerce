@@ -1,11 +1,11 @@
 <?php 
 
-namespace PCCW\App\Includes\Front\Shortcodes;
+namespace PCBW\App\Includes\Front\Shortcodes;
 
-use PCCW\App\Traits\Template;
-use PCCW\App\Includes\Abstracts\Shortcode;
-use PCCW\App\Includes\Services\TaxonomyDataHandlerService;
-use PCCW\App\Includes\Services\StylesGeneratorService;
+use PCBW\App\Traits\Template;
+use PCBW\App\Includes\Abstracts\Shortcode;
+use PCBW\App\Includes\Services\TaxonomyDataHandlerService;
+use PCBW\App\Includes\Services\StylesGeneratorService;
 
 class TaxonomyTerms extends Shortcode {
     use Template;
@@ -34,10 +34,10 @@ class TaxonomyTerms extends Shortcode {
             $term_static = ! empty( $atts['term_style'] ) ? $atts['term_style'] : '';
             $term_hover = ! empty( $atts['term_hover'] ) ? $atts['term_hover'] : '';
 
-            $term_selector = '.pccw_taxonomy_terms';
+            $term_selector = '.pcbw_taxonomy_terms';
 
             if ( ! empty ( $id ) ) {
-                $term_selector .= '.pccw_taxonomy_terms-'.$id;
+                $term_selector .= '.pcbw_taxonomy_terms-'.$id;
             }
 
             if ( ! empty( $this->atts['links'] ) && $this->atts['links'] === 'true' ) {
@@ -55,7 +55,7 @@ class TaxonomyTerms extends Shortcode {
 
         $result .= $this->output_taxonomy_terms( $product->get_id() );
 
-        return sprintf('<div class="pccw_taxonomy_terms%s">%s</div>', !empty($id) ? ' pccw_taxonomy_terms'.'-'.$id :'', $result);
+        return sprintf('<div class="pcbw_taxonomy_terms%s">%s</div>', !empty($id) ? ' pcbw_taxonomy_terms'.'-'.$id :'', $result);
     }
 
     protected function get_current_namespace(): string
@@ -94,7 +94,7 @@ class TaxonomyTerms extends Shortcode {
             if ( is_array( $item ) ) {
                 if ( ! empty( $item['link'] ) ) {
                     printf(
-                        '<a class="pccw_term-item" data-term-slug="%s" href="%s" target="%s">%s%s</a>',
+                        '<a class="pcbw_term-item" data-term-slug="%s" href="%s" target="%s">%s%s</a>',
                         $item['slug'],
                         $item['link'],
                         $links_target,
@@ -103,7 +103,7 @@ class TaxonomyTerms extends Shortcode {
                     );
                 } else {
                     printf(
-                        '<span class="pccw_term-item" data-term-slug="%s">%s%s</span>',
+                        '<span class="pcbw_term-item" data-term-slug="%s">%s%s</span>',
                         $item['slug'],
                         $item['name'],
                         $count ? '(' . $item['count'] . ')' : ''

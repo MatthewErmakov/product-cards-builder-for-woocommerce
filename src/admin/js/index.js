@@ -18,18 +18,18 @@ jQuery(function($){
   let timeout;
 
   function preview() {
-    let productSelectPreviewVal = $('select[name="pccw_preview_product"]').val();
+    let productSelectPreviewVal = $('select[name="pcbw_preview_product"]').val();
 
     productSelectPreviewVal = productSelectPreviewVal === 'Choose a product' ? false : productSelectPreviewVal;
 
     $.ajax({
-      url: pccw.ajax_url,
+      url: pcbw.ajax_url,
       method: 'POST',
       data: {
-        action: 'pccw_preview',
+        action: 'pcbw_preview',
         shortcode: editor.getValue(),
         product_id: productSelectPreviewVal,
-        nonce: pccw.nonce_preview
+        nonce: pcbw.nonce_preview
       },
       
       success: function (response) {
@@ -43,10 +43,10 @@ jQuery(function($){
         }
 
         if ( response.data.styles ) {
-          if ( $('#pccw-inline-css').length === 0 ) {
+          if ( $('#pcbw-inline-css').length === 0 ) {
             $('head').append(response.data.styles);
           } else {
-            $('#pccw-inline-css').remove();
+            $('#pcbw-inline-css').remove();
             $('head').append(response.data.styles);
           }
         }
@@ -66,7 +66,7 @@ jQuery(function($){
     }, 500);
   });
 
-  $('select[name="pccw_preview_product"]').on('change', function (){
+  $('select[name="pcbw_preview_product"]').on('change', function (){
     clearTimeout(timeout);
 
     $('#save-template').removeAttr('disabled');
@@ -77,20 +77,20 @@ jQuery(function($){
   });
 
   $('#save-template').on('click', function(){
-    let productSelectPreviewVal = $('select[name="pccw_preview_product"]').val();
+    let productSelectPreviewVal = $('select[name="pcbw_preview_product"]').val();
 
     productSelectPreviewVal = productSelectPreviewVal === 'Choose a product' ? false : productSelectPreviewVal;
 
     $('#save-template').attr('disabled', '');
 
     $.ajax({
-      url: pccw.ajax_url,
+      url: pcbw.ajax_url,
       method: 'POST',
       data: {
-        action: 'pccw_save_template',
+        action: 'pcbw_save_template',
         shortcode: editor.getValue(),
         product_id: productSelectPreviewVal,
-        nonce: pccw.nonce_save_template
+        nonce: pcbw.nonce_save_template
       },
 
       success: function(response) {
@@ -124,12 +124,12 @@ jQuery(function($){
     let inputValue = activateTemplateInput.val();
 
     $.ajax({
-      url: pccw.ajax_url,
+      url: pcbw.ajax_url,
       method: 'POST',
       data: {
-        action: 'pccw_activate_template',
+        action: 'pcbw_activate_template',
         activate_template: inputValue,
-        nonce: pccw.nonce_activate_template
+        nonce: pcbw.nonce_activate_template
       },
 
       success: function (response) {

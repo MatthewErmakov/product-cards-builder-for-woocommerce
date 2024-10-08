@@ -1,6 +1,6 @@
 <?php 
 
-namespace PCCW\App\Traits;
+namespace PCBW\App\Traits;
 
 /**
  * * USED IN CONTROLLERS *

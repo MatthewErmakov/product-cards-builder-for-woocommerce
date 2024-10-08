@@ -1,8 +1,8 @@
 <?php 
 
-namespace PCCW\App;
+namespace PCBW\App;
 
-use \PCCW\App\Traits\Classes;
+use \PCBW\App\Traits\Classes;
 
 class Kernel {
 
@@ -78,11 +78,11 @@ class Kernel {
         wp_register_style( 'product-cards-customiser', $this->url . 'public/assets/front.css', [], filemtime( $this->path . 'public/assets/front.css' ) );
         wp_enqueue_style( 'product-cards-customiser' );
 
-        wp_localize_script( 'product-cards-customiser-admin', 'pccw', [
+        wp_localize_script( 'product-cards-customiser-admin', 'pcbw', [
             'ajax_url'                => admin_url( 'admin-ajax.php' ),
-            'nonce_preview'           => wp_create_nonce( 'pccw_preview' ),
-            'nonce_save_template'     => wp_create_nonce( 'pccw_save_template' ),
-            'nonce_activate_template' => wp_create_nonce( 'pccw_activate_template' )
+            'nonce_preview'           => wp_create_nonce( 'pcbw_preview' ),
+            'nonce_save_template'     => wp_create_nonce( 'pcbw_save_template' ),
+            'nonce_activate_template' => wp_create_nonce( 'pcbw_activate_template' )
         ]);
     }
 

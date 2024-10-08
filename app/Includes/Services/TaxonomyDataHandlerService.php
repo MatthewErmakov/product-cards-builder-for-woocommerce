@@ -1,8 +1,8 @@
 <?php 
 
-namespace PCCW\App\Includes\Services;
+namespace PCBW\App\Includes\Services;
 
-use PCCW\App\Kernel;
+use PCBW\App\Kernel;
 
 class TaxonomyDataHandlerService {
 

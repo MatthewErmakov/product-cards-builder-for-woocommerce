@@ -1,10 +1,10 @@
 <?php 
 
-namespace PCCW\App\Includes\Front\Shortcodes;
+namespace PCBW\App\Includes\Front\Shortcodes;
 
-use PCCW\App\Traits\Template;
-use PCCW\App\Includes\Abstracts\Shortcode;
-use PCCW\App\Includes\Services\StylesGeneratorService;
+use PCBW\App\Traits\Template;
+use PCBW\App\Includes\Abstracts\Shortcode;
+use PCBW\App\Includes\Services\StylesGeneratorService;
 
 class StockStatus extends Shortcode {
     use Template;
@@ -79,8 +79,8 @@ class StockStatus extends Shortcode {
         }
 
         return sprintf( 
-            '<div class="pccw_stock_status%s">%s</div>', 
-            ! empty( $atts['id'] ) ? ( ' pccw_stock_status-' . $atts['id'] ) : '',
+            '<div class="pcbw_stock_status%s">%s</div>', 
+            ! empty( $atts['id'] ) ? ( ' pcbw_stock_status-' . $atts['id'] ) : '',
             $caption
         );
     }

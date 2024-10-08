@@ -1,34 +1,34 @@
 <?php
 /**
- * Plugin Name:          Product Cards Customiser for WooCommerce
- * Plugin URI:           https://github.com/MatthewErmakov/product-cards-customiser-for-woocommerce
+ * Plugin Name:          Product Cards Builder for WooCommerce
+ * Plugin URI:           https://github.com/MatthewErmakov/product-cards-builder-for-woocommerce
  * Author:               Matthew V. Yermakov
  * Author URI:           https://github.com/MatthewErmakov
- * GitHub Plugin URI:    https://github.com/MatthewErmakov/product-cards-customiser-for-woocommerce
+ * GitHub Plugin URI:    https://github.com/MatthewErmakov/product-cards-builder-for-woocommerce
  *
- * Description:          Allows you to customise your woocommerce product cards view
+ * Description:          Allows you to build and customise your woocommerce product cards view.
  * 
  * Version:              1.0.2
  * Requires at least:    5.4
  * Tested up to:         6.6.2
  *
- * Text Domain:          pccw
+ * Text Domain:          pcbw
  * Domain Path:          /languages/
  *
  * @category             Plugin
  * @copyright            Copyright © 2024 Matthew V. Yermakov, Copyright © 2024
  * @author               Matthew V. Yermakov
- * @package              PCCW
+ * @package              PCBW
  * @license              GPL2
  */
 
-namespace PCCW;
+namespace PCBW;
 
 require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
 
 $kernel = App\Kernel::get_instance( 
     '1.0.2',                      // Plugin version
-    'pccw',                       // Plugin text domain
+    'pcbw',                       // Plugin text domain
     plugin_dir_path( __FILE__ ),  // Plugin directory path
     plugin_dir_url( __FILE__ )    // Plugin URL path
 );

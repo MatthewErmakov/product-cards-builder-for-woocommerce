@@ -1,8 +1,8 @@
 <?php 
 
-namespace PCCW\App\Traits;
+namespace PCBW\App\Traits;
 
-use PCCW\App\Kernel;
+use PCBW\App\Kernel;
 
 /**
  * * USED IN KERNEL *

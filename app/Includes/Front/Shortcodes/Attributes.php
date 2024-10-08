@@ -1,9 +1,9 @@
 <?php 
 
-namespace PCCW\App\Includes\Front\Shortcodes;
+namespace PCBW\App\Includes\Front\Shortcodes;
 
-use PCCW\App\Traits\Template;
-use PCCW\App\Includes\Abstracts\Shortcode;
+use PCBW\App\Traits\Template;
+use PCBW\App\Includes\Abstracts\Shortcode;
 
 class Attributes extends Shortcode {
     use Template;
@@ -38,15 +38,15 @@ class Attributes extends Shortcode {
                 $value = $data['options'];
     
                 if ( is_array( $value ) ) {
-                    $result .= '<div class="pccw_attribute-group">';
+                    $result .= '<div class="pcbw_attribute-group">';
     
                     if ( $display_attribute_name ) {
                         if ( ! $data['is_taxonomy'] ) {
-                            $result .= '<span class="pccw_attribute-name">' . $data['name'] . ': </span>';
+                            $result .= '<span class="pcbw_attribute-name">' . $data['name'] . ': </span>';
                         } else {
                             $term = get_taxonomy( $data['name'] );
         
-                            $result .= '<span class="pccw_attribute-name">' . $term->labels->singular_name . ': </span>';
+                            $result .= '<span class="pcbw_attribute-name">' . $term->labels->singular_name . ': </span>';
                         }
                     }
                     
@@ -56,7 +56,7 @@ class Attributes extends Shortcode {
                         if ( ! $data['is_taxonomy'] ) {
                             $attr_item = trim( $attr_item );
                             $attrs[] = sprintf(
-                                '<span class="pccw_attribute-item" data-attribute-name="%s">%s</span>',
+                                '<span class="pcbw_attribute-item" data-attribute-name="%s">%s</span>',
                                 $attr_item,
                                 $attr_item,
                             );
@@ -64,7 +64,7 @@ class Attributes extends Shortcode {
                             $term_item = get_term_by( 'ID', $attr_item, $data['name'] );
                             $term_name = $term_item->name;
                             $attrs[] = sprintf(
-                                '<span class="pccw_attribute-item" data-attribute-name="%s">%s</span>',
+                                '<span class="pcbw_attribute-item" data-attribute-name="%s">%s</span>',
                                 $term_item->slug,
                                 $term_name,
                             );
@@ -81,8 +81,8 @@ class Attributes extends Shortcode {
         }
 
         return sprintf( 
-            '<div class="pccw_attributes%s">%s</div>', 
-            isset( $atts['id'] ) ? ' pccw_attributes-' . $atts['id'] : '', 
+            '<div class="pcbw_attributes%s">%s</div>', 
+            isset( $atts['id'] ) ? ' pcbw_attributes-' . $atts['id'] : '', 
             $result
         );
     }

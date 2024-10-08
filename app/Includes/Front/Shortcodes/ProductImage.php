@@ -1,9 +1,9 @@
 <?php 
 
-namespace PCCW\App\Includes\Front\Shortcodes;
+namespace PCBW\App\Includes\Front\Shortcodes;
 
-use PCCW\App\Traits\Template;
-use PCCW\App\Includes\Abstracts\Shortcode;
+use PCBW\App\Traits\Template;
+use PCBW\App\Includes\Abstracts\Shortcode;
 
 class ProductImage extends Shortcode {
     use Template;
@@ -26,7 +26,7 @@ class ProductImage extends Shortcode {
         }
 
         return $product->get_image( 'woocommerce_thumbnail', [
-            'alt' => $product->get_name(), 'class' => isset( $atts['id'] ) ? 'pccw_product_image-' . $atts['id'] : 'pccw_product_image'
+            'alt' => $product->get_name(), 'class' => isset( $atts['id'] ) ? 'pcbw_product_image-' . $atts['id'] : 'pcbw_product_image'
         ]);
     }
 

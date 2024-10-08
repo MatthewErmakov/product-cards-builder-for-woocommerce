@@ -1,9 +1,9 @@
 <?php 
 
-namespace PCCW\App\Includes\Front\Shortcodes;
+namespace PCBW\App\Includes\Front\Shortcodes;
 
-use PCCW\App\Traits\Template;
-use PCCW\App\Includes\Abstracts\Shortcode;
+use PCBW\App\Traits\Template;
+use PCBW\App\Includes\Abstracts\Shortcode;
 
 class Wrapper extends Shortcode {
     use Template;
@@ -35,10 +35,10 @@ class Wrapper extends Shortcode {
 
         if ( ! is_null( $content ) ) {;            
             return sprintf( 
-                '<%s%s class="pccw_wrapper%s">%s</%s>', 
+                '<%s%s class="pcbw_wrapper%s">%s</%s>', 
                 $tag, 
                 ( $tag === 'a' ? sprintf( ' href="%s"', $permalink ) : '' ),
-                isset( $atts['id'] ) ? ' pccw_wrapper-' . $atts['id'] : '', 
+                isset( $atts['id'] ) ? ' pcbw_wrapper-' . $atts['id'] : '', 
                 do_shortcode( $content ), 
                 $tag 
             );

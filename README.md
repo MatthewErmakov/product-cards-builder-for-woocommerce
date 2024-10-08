@@ -1,4 +1,4 @@
-# 🖌️ 🖼️ Product Cards Customiser for WooCommerce
+# 🖌️ 🖼️ Product Cards Builder for WooCommerce
 Allows users to customise their product cards on the online stores built with WooCommerce plugin.
 
 ## Version 1.0.2
@@ -14,5 +14,5 @@ Allows users to customise their product cards on the online stores built with Wo
 ## Version 1.0.0
 
 * Added basic functionality with the shortcodes
-* Added pccw_add_to_cart, pccw_attributes, pccw_container, pccw_price, pccw_product_heading, pccw_product_image, pccw_rating, pccw_stock_status, pccw_taxonomy_terms, pccw_wrapper
+* Added pcbw_add_to_cart, pcbw_attributes, pcbw_container, pcbw_price, pcbw_product_heading, pcbw_product_image, pcbw_rating, pcbw_stock_status, pcbw_taxonomy_terms, pcbw_wrapper
 * Added specific common and specific attributes for each of them

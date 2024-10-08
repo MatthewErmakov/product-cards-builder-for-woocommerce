@@ -1,10 +1,10 @@
 <?php 
 
-namespace PCCW\App\Includes\Front\Shortcodes;
+namespace PCBW\App\Includes\Front\Shortcodes;
 
-use PCCW\App\Traits\Template;
-use PCCW\App\Includes\Abstracts\Shortcode;
-use PCCW\App\Includes\Services\StylesGeneratorService;
+use PCBW\App\Traits\Template;
+use PCBW\App\Includes\Abstracts\Shortcode;
+use PCBW\App\Includes\Services\StylesGeneratorService;
 
 class AddToCart extends Shortcode {
     use Template;

@@ -1,9 +1,9 @@
 <?php 
 
-namespace PCCW\App\Includes\Front;
+namespace PCBW\App\Includes\Front;
 
-use PCCW\App\Includes\Abstracts\Front;
-use PCCW\App\Traits\Classes;
+use PCBW\App\Includes\Abstracts\Front;
+use PCBW\App\Traits\Classes;
 
 class ProductCard extends Front {
     use Classes;
@@ -21,7 +21,7 @@ class ProductCard extends Front {
                 echo $this->inline_css_output();
             });
         } else {
-            add_filter( 'pccw_preview_card_styles', [$this, 'inline_css_output'], 99 );
+            add_filter( 'pcbw_preview_card_styles', [$this, 'inline_css_output'], 99 );
         }
     }
 
@@ -36,7 +36,7 @@ class ProductCard extends Front {
     public function rewrite_template ( $template )  {
         if ( function_exists( 'wc_current_theme_is_fse_theme' ) ) {
             if ( ! wc_current_theme_is_fse_theme() ) {
-                if ( stripos( $template, 'content-product.php' ) !== false && get_option( 'pccw_activate_template', 'no' ) === 'yes' ) {
+                if ( stripos( $template, 'content-product.php' ) !== false && get_option( 'pcbw_activate_template', 'no' ) === 'yes' ) {
                     return $this->plugin->path . 'views/front/product-card.php';
                 }
             }
@@ -47,6 +47,6 @@ class ProductCard extends Front {
 
     public function inline_css_output(): string
     {
-        return sprintf( '<style id="pccw-inline-css">%s</style>', apply_filters( 'pccw_style', '' ) );
+        return sprintf( '<style id="pcbw-inline-css">%s</style>', apply_filters( 'pcbw_style', '' ) );
     }
 }

@@ -1,10 +1,10 @@
 <?php 
 
-namespace PCCW\App\Includes\Front\Shortcodes;
+namespace PCBW\App\Includes\Front\Shortcodes;
 
-use PCCW\App\Traits\Template;
-use PCCW\App\Includes\Abstracts\Shortcode;
-use PCCW\App\Includes\Services\StylesGeneratorService;
+use PCBW\App\Traits\Template;
+use PCBW\App\Includes\Abstracts\Shortcode;
+use PCBW\App\Includes\Services\StylesGeneratorService;
 
 class Price extends Shortcode {
     use Template;
@@ -41,8 +41,8 @@ class Price extends Shortcode {
 
         if ( $price_html !== '' ) {
             return sprintf( 
-                '<div class="pccw_price%s">%s</div>', 
-                ! empty( $atts['id'] ) ? ( ' pccw_price-' . $atts['id'] ) : '',
+                '<div class="pcbw_price%s">%s</div>', 
+                ! empty( $atts['id'] ) ? ( ' pcbw_price-' . $atts['id'] ) : '',
                 $price_html
             );
         }

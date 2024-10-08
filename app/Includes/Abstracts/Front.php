@@ -1,8 +1,8 @@
 <?php
 
-namespace PCCW\App\Includes\Abstracts;
+namespace PCBW\App\Includes\Abstracts;
 
-use \PCCW\App\Kernel;
+use \PCBW\App\Kernel;
 
 abstract class Front {
     public function __construct( Kernel $kernel ) {

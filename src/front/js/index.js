@@ -1,5 +1,5 @@
 jQuery(function($){
-    $('a[class*="pccw_add_to_cart"]').on('click', function(){
+    $('a[class*="pcbw_add_to_cart"]').on('click', function(){
         let elem = $(this);
         let viewCartAjaxClass = elem.data('view_cart_classes');
 

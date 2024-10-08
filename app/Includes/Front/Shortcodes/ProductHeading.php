@@ -1,9 +1,9 @@
 <?php 
 
-namespace PCCW\App\Includes\Front\Shortcodes;
+namespace PCBW\App\Includes\Front\Shortcodes;
 
-use PCCW\App\Traits\Template;
-use PCCW\App\Includes\Abstracts\Shortcode;
+use PCBW\App\Traits\Template;
+use PCBW\App\Includes\Abstracts\Shortcode;
 
 class ProductHeading extends Shortcode {
     use Template;
@@ -26,8 +26,8 @@ class ProductHeading extends Shortcode {
         }
 
         return sprintf( 
-            '<h2 class="pccw_product_heading%s %s">%s</h2>', 
-            ! empty( $atts['id'] ) ? ( ' pccw_product_heading-' . $atts['id'] ) : '',
+            '<h2 class="pcbw_product_heading%s %s">%s</h2>', 
+            ! empty( $atts['id'] ) ? ( ' pcbw_product_heading-' . $atts['id'] ) : '',
             esc_attr( 
                 apply_filters( 'woocommerce_product_loop_title_classes', 'woocommerce-loop-product__title' ) 
             ),

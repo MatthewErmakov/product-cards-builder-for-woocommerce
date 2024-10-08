@@ -1,8 +1,8 @@
 <?php 
 
-namespace PCCW\App\Includes\Services;
+namespace PCBW\App\Includes\Services;
 
-use PCCW\App\Kernel;
+use PCBW\App\Kernel;
 
 class StylesGeneratorService {
 
@@ -18,12 +18,12 @@ class StylesGeneratorService {
     }
 
     public function generate(): void {
-        add_filter( 'pccw_style', [$this, 'process_styles'] );
+        add_filter( 'pcbw_style', [$this, 'process_styles'] );
     }
 
     public function ungenerate(): void
     {
-        remove_filter( 'pccw_style', [$this, 'process_styles'] );
+        remove_filter( 'pcbw_style', [$this, 'process_styles'] );
     }
 
     public function process_styles( string $style ): string

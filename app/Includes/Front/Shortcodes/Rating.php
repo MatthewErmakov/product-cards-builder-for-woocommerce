@@ -1,9 +1,9 @@
 <?php 
 
-namespace PCCW\App\Includes\Front\Shortcodes;
+namespace PCBW\App\Includes\Front\Shortcodes;
 
-use PCCW\App\Traits\Template;
-use PCCW\App\Includes\Abstracts\Shortcode;
+use PCBW\App\Traits\Template;
+use PCBW\App\Includes\Abstracts\Shortcode;
 
 class Rating extends Shortcode {
     public function result( array $atts = [], $content = null ): string 
@@ -41,14 +41,14 @@ class Rating extends Shortcode {
         }
 
         return sprintf( 
-            '<div class="pccw_rating%s%s%s"><div class="stars rating-%s">%s</div>%s</div>', 
-            ! empty( $atts['id'] ) ? ( ' pccw_rating-' . $atts['id'] ) : '',
+            '<div class="pcbw_rating%s%s%s"><div class="stars rating-%s">%s</div>%s</div>', 
+            ! empty( $atts['id'] ) ? ( ' pcbw_rating-' . $atts['id'] ) : '',
             $display_reviews_amount ? ' caption' : '',
             ' ' . $reviews_amount_location,
             $rating,
             str_repeat('<span></span>', 5),
             $display_reviews_amount ? (
-                apply_filters( 'pccw_reviews_caption', sprintf(
+                apply_filters( 'pcbw_reviews_caption', sprintf(
                     "%d %s", 
                     $reviews_amount,
                     $reviews_amount === 1 ? __('review', $this->plugin->text_domain) : __('reviews', $this->plugin->text_domain),
@@ -81,12 +81,12 @@ class Rating extends Shortcode {
         }
 
         /**
-         * Used pccw_rating filter
+         * Used pcbw_rating filter
          * in case of different reviews plugin used
          * and it's needed to modify reviews output
          */
 
-        return apply_filters( 'pccw_rating', $result, $product_id );
+        return apply_filters( 'pcbw_rating', $result, $product_id );
     }
 
     private function round_to_quarter( float $number ): string

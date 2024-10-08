@@ -1,12 +1,12 @@
 <?php 
 
-namespace PCCW\App\Includes\Abstracts;
+namespace PCBW\App\Includes\Abstracts;
 
-use PCCW\App\Kernel;
-use PCCW\App\Includes\Services\StylesGeneratorService;
+use PCBW\App\Kernel;
+use PCBW\App\Includes\Services\StylesGeneratorService;
 
 abstract class Shortcode {
-    private $prefix = 'pccw_';
+    private $prefix = 'pcbw_';
     protected $atts;
 
     public function __construct( Kernel $plugin )

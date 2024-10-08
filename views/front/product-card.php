@@ -25,5 +25,5 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 }
 ?>
 <li <?php wc_product_class( '', $product ); ?>>
-	<?php echo do_shortcode( stripslashes( get_option( 'pccw_template_shortcode', '') ) ); ?>
+	<?php echo do_shortcode( stripslashes( get_option( 'pcbw_template_shortcode', '') ) ); ?>
 </li>
