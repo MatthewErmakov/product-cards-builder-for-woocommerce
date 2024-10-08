@@ -20,7 +20,7 @@ class StockStatus extends Shortcode {
         $is_in_stock = $product->is_in_stock();
         $stock_quantity = $product->get_stock_quantity();
 
-        $caption = __('Out of stock', $this->plugin->text_domain);
+        $caption = __('Out of stock', 'pcbw');
 
         $id = ! empty( $atts['id'] ) ? $atts['id'] : '';
 
@@ -37,7 +37,7 @@ class StockStatus extends Shortcode {
         // add caption instock and wrap in specific block
         // otherwise wrap outofstock in specific block
         if ( $is_in_stock ) {
-            $caption = __('In stock', $this->plugin->text_domain);
+            $caption = __('In stock', 'pcbw');
 
             if ( ! empty( $atts['show_quantity'] ) && $atts['show_quantity'] === 'true' && ! is_null( $stock_quantity ) ) {
                 $caption .= ': ' . $stock_quantity;
@@ -58,7 +58,7 @@ class StockStatus extends Shortcode {
                 $styles_generator->generate();
             }
 
-            $caption = sprintf( '<span class="in-stock">%s</span>', $caption );
+            $caption = sprintf( '<span class="in-stock">%s</span>', esc_html( $caption ) );
         } else {
             if ( ! empty( $atts['out_of_stock_style'] ) || ! empty( $atts['out_of_stock_hover'] ) ) {
                 $out_of_stock_static = ! empty( $atts['out_of_stock_style'] ) ? $atts['out_of_stock_style'] : '';
@@ -75,12 +75,12 @@ class StockStatus extends Shortcode {
                 $styles_generator->generate();
             }
 
-            $caption = sprintf( '<span class="out-of-stock">%s</span>', $caption );
+            $caption = sprintf( '<span class="out-of-stock">%s</span>', esc_html( $caption ) );
         }
 
         return sprintf( 
             '<div class="pcbw_stock_status%s">%s</div>', 
-            ! empty( $atts['id'] ) ? ( ' pcbw_stock_status-' . $atts['id'] ) : '',
+            ! empty( $atts['id'] ) ? ( ' pcbw_stock_status-' . esc_attr( $atts['id'] ) ) : '',
             $caption
         );
     }

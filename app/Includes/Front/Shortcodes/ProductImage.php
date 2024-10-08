@@ -26,7 +26,8 @@ class ProductImage extends Shortcode {
         }
 
         return $product->get_image( 'woocommerce_thumbnail', [
-            'alt' => $product->get_name(), 'class' => isset( $atts['id'] ) ? 'pcbw_product_image-' . $atts['id'] : 'pcbw_product_image'
+            'alt' => $product->get_name(), 
+            'class' => isset( $atts['id'] ) ? esc_attr( 'pcbw_product_image-' . $atts['id'] ) : esc_attr( 'pcbw_product_image' )
         ]);
     }
 

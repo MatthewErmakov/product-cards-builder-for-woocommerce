@@ -31,7 +31,7 @@ class ProductHeading extends Shortcode {
             esc_attr( 
                 apply_filters( 'woocommerce_product_loop_title_classes', 'woocommerce-loop-product__title' ) 
             ),
-            $product->get_title()
+            esc_html( $product->get_title() )
         );
     }
 

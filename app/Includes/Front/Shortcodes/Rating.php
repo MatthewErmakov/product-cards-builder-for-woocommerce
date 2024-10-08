@@ -42,16 +42,16 @@ class Rating extends Shortcode {
 
         return sprintf( 
             '<div class="pcbw_rating%s%s%s"><div class="stars rating-%s">%s</div>%s</div>', 
-            ! empty( $atts['id'] ) ? ( ' pcbw_rating-' . $atts['id'] ) : '',
+            ! empty( $atts['id'] ) ? esc_attr( ' pcbw_rating-' . $atts['id'] ) : '',
             $display_reviews_amount ? ' caption' : '',
-            ' ' . $reviews_amount_location,
-            $rating,
+            esc_attr( ' ' . $reviews_amount_location ),
+            esc_attr( $rating ),
             str_repeat('<span></span>', 5),
             $display_reviews_amount ? (
                 apply_filters( 'pcbw_reviews_caption', sprintf(
                     "%d %s", 
-                    $reviews_amount,
-                    $reviews_amount === 1 ? __('review', $this->plugin->text_domain) : __('reviews', $this->plugin->text_domain),
+                    esc_html( $reviews_amount ),
+                    $reviews_amount === 1 ? __('review', 'pcbw') : __('reviews', 'pcbw'),
                 ), $reviews_amount )
             ) : ''
         );

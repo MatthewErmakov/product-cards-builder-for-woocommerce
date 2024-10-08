@@ -103,7 +103,7 @@ class AddToCart extends Shortcode {
         $id = ! empty( $atts['id'] ) ? $atts['id'] : '';
         $shorcode_name = $this->get_name();
         $classname = $id !== '' ? ' ' . $shorcode_name . '-' . $id : ' ' . $shorcode_name;
-        $html = '<form action="' . esc_url( $product->add_to_cart_url() ) . '" class="cart' . $classname . '" method="post" enctype="multipart/form-data">';
+        $html = '<form action="' . esc_url( $product->add_to_cart_url() ) . '" class="cart' . esc_attr( $classname ) . '" method="post" enctype="multipart/form-data">';
         
         $product_id = 0;
 
@@ -141,7 +141,7 @@ class AddToCart extends Shortcode {
 
         $style_generator->generate();
 
-        $html .= '<button type="submit" class="' . $button_classes . '">' . esc_html( $product->add_to_cart_text() ) . '</button>';
+        $html .= '<button type="submit" class="' . esc_attr( $button_classes ) . '">' . esc_html( $product->add_to_cart_text() ) . '</button>';
         $html .= '</form>';
 
         return $html;

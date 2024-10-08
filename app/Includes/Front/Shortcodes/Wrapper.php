@@ -38,7 +38,7 @@ class Wrapper extends Shortcode {
                 '<%s%s class="pcbw_wrapper%s">%s</%s>', 
                 $tag, 
                 ( $tag === 'a' ? sprintf( ' href="%s"', $permalink ) : '' ),
-                isset( $atts['id'] ) ? ' pcbw_wrapper-' . $atts['id'] : '', 
+                isset( $atts['id'] ) ? ' pcbw_wrapper-' . esc_attr( $atts['id'] ) : '', 
                 do_shortcode( $content ), 
                 $tag 
             );

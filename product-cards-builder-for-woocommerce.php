@@ -28,7 +28,6 @@ require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
 
 $kernel = App\Kernel::get_instance( 
     '1.0.2',                      // Plugin version
-    'pcbw',                       // Plugin text domain
     plugin_dir_path( __FILE__ ),  // Plugin directory path
     plugin_dir_url( __FILE__ )    // Plugin URL path
 );

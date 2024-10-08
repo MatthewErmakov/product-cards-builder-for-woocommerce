@@ -42,11 +42,11 @@ class Attributes extends Shortcode {
     
                     if ( $display_attribute_name ) {
                         if ( ! $data['is_taxonomy'] ) {
-                            $result .= '<span class="pcbw_attribute-name">' . $data['name'] . ': </span>';
+                            $result .= '<span class="pcbw_attribute-name">' . esc_html( $data['name'] ) . ': </span>';
                         } else {
                             $term = get_taxonomy( $data['name'] );
         
-                            $result .= '<span class="pcbw_attribute-name">' . $term->labels->singular_name . ': </span>';
+                            $result .= '<span class="pcbw_attribute-name">' . esc_html( $term->labels->singular_name ) . ': </span>';
                         }
                     }
                     
@@ -57,16 +57,16 @@ class Attributes extends Shortcode {
                             $attr_item = trim( $attr_item );
                             $attrs[] = sprintf(
                                 '<span class="pcbw_attribute-item" data-attribute-name="%s">%s</span>',
-                                $attr_item,
-                                $attr_item,
+                                esc_attr( $attr_item ),
+                                esc_html( $attr_item )
                             );
                         } else {
                             $term_item = get_term_by( 'ID', $attr_item, $data['name'] );
                             $term_name = $term_item->name;
                             $attrs[] = sprintf(
                                 '<span class="pcbw_attribute-item" data-attribute-name="%s">%s</span>',
-                                $term_item->slug,
-                                $term_name,
+                                esc_attr( $term_item->slug ),
+                                esc_html( $term_name ),
                             );
                         }
                     }    

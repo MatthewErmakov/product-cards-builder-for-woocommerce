@@ -1,8 +1,6 @@
 <?php
 /**
  * Plugin Main Page markup
- * 
- * FIXME: ADD TEXTDOMAINS HERE
  */
 ?>
 

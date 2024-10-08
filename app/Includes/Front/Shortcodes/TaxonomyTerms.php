@@ -55,7 +55,7 @@ class TaxonomyTerms extends Shortcode {
 
         $result .= $this->output_taxonomy_terms( $product->get_id() );
 
-        return sprintf('<div class="pcbw_taxonomy_terms%s">%s</div>', !empty($id) ? ' pcbw_taxonomy_terms'.'-'.$id :'', $result);
+        return sprintf('<div class="pcbw_taxonomy_terms%s">%s</div>', !empty($id) ? ' pcbw_taxonomy_terms'.'-'.esc_attr($id) :'', $result);
     }
 
     protected function get_current_namespace(): string
@@ -95,18 +95,18 @@ class TaxonomyTerms extends Shortcode {
                 if ( ! empty( $item['link'] ) ) {
                     printf(
                         '<a class="pcbw_term-item" data-term-slug="%s" href="%s" target="%s">%s%s</a>',
-                        $item['slug'],
-                        $item['link'],
-                        $links_target,
-                        $item['name'],
-                        $count ? ' (' . $item['count'] . ')' : ''
+                        esc_attr( $item['slug'] ),
+                        esc_url( $item['link'] ),
+                        esc_attr( $links_target ),
+                        esc_html( $item['name'] ),
+                        $count ? ' (' . esc_html( $item['count'] ) . ')' : ''
                     );
                 } else {
                     printf(
                         '<span class="pcbw_term-item" data-term-slug="%s">%s%s</span>',
-                        $item['slug'],
-                        $item['name'],
-                        $count ? '(' . $item['count'] . ')' : ''
+                        esc_attr( $item['slug'] ),
+                        esc_html( $item['name'] ),
+                        $count ? '(' . esc_html( $item['count'] ) . ')' : ''
                     );
                 }
             }
