@@ -60,7 +60,7 @@
 					<tr>
 						<td><code>[pcbw_add_to_cart]</code></td>
 						<td>
-							<code>id</code> (CSS style), 
+							<code>id</code> (Unique CSS selector), 
 							<code>style</code> (CSS style), 
 							<code>hover</code> (CSS style), 
 							<code>view_cart</code> (boolean),
@@ -72,7 +72,7 @@
 					<tr>
 						<td><code>[pcbw_attributes]</code></td>
 						<td>
-							<code>id</code> (CSS style), 
+							<code>id</code> (Unique CSS selector), 
 							<code>style</code> (CSS style), 
 							<code>hover</code> (CSS style)
 						</td>
@@ -81,7 +81,7 @@
 					<tr>
 						<td><code>[pcbw_container]</code></td>
 						<td>
-							<code>id</code> (CSS style), 
+							<code>id</code> (Unique CSS selector), 
 							<code>style</code> (CSS style), 
 							<code>hover</code> (CSS style), 
 							<code>product_link</code> (boolean) - <?php echo __('use this attribute in case of you want this block to be a product link', 'pcbw') ?>
@@ -91,7 +91,7 @@
 					<tr>
 						<td><code>[pcbw_price]</code></td>
 						<td>
-							<code>id</code> (CSS style), 
+							<code>id</code> (Unique CSS selector), 
 							<code>style</code> (CSS style), 
 							<code>hover</code> (CSS style), 
 							<code>sale_price_style</code> (CSS style), 
@@ -102,7 +102,7 @@
 					<tr>
 						<td><code>[pcbw_product_heading]</code></td>
 						<td>
-							<code>id</code> (CSS style), 
+							<code>id</code> (Unique CSS selector), 
 							<code>style</code> (CSS style), 
 							<code>hover</code> (CSS style)
 						</td>
@@ -111,7 +111,7 @@
 					<tr>
 						<td><code>[pcbw_product_image]</code></td>
 						<td>
-							<code>id</code> (CSS style), 
+							<code>id</code> (Unique CSS selector), 
 							<code>style</code> (CSS style), 
 							<code>hover</code> (CSS style)
 						</td>
@@ -120,7 +120,7 @@
 					<tr>
 						<td><code>[pcbw_rating]</code></td>
 						<td>
-							<code>id</code> (CSS style), 
+							<code>id</code> (Unique CSS selector), 
 							<code>style</code> (CSS style), 
 							<code>hover</code> (CSS style), 
 							<code>display_reviews_amount</code>(boolean),
@@ -132,7 +132,7 @@
 					<tr>
 					<td><code>[pcbw_stock_status]</code></td>
 						<td>
-							<code>id</code> (CSS style), 
+							<code>id</code> (Unique CSS selector), 
 							<code>style</code> (CSS style), 
 							<code>hover</code> (CSS style), 
 							<code>show_quantity</code> (boolean), 
@@ -144,7 +144,7 @@
 					<tr>
 						<td><code>[pcbw_taxonomy_terms]</code></td>
 						<td>
-							<code>id</code> (CSS style), 
+							<code>id</code> (Unique CSS selector), 
 							<code>style</code> (CSS style), 
 							<code>hover</code> (CSS style), 
 							<code>term_style</code> (CSS style), 
@@ -157,7 +157,7 @@
 					<tr>
 						<td><code>[pcbw_wrapper]</code></td>
 						<td>
-							<code>id</code> (CSS style), 
+							<code>id</code> (Unique CSS selector), 
 							<code>style</code> (CSS style), 
 							<code>hover</code> (CSS style), 
 							<code>product_link</code> (boolean) - <?php echo __('use this attribute in case of you want this block to be a product link', 'pcbw') ?>
