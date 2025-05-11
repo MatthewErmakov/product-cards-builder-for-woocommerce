@@ -1,4 +1,4 @@
-# 🖌️ 🖼️ Product Cards Builder for WooCommerce
+# Product Cards Builder for WooCommerce
 
 Tested up to: 6.8
 Stable tag: 1.0.2

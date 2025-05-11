@@ -1,5 +1,3 @@
-import CodeMirror from "./libs/codemirror";
-
 var mixedMode = {
     name: "htmlmixed",
     tags: {
@@ -7,7 +5,7 @@ var mixedMode = {
       }
     }
 
-let editor = new CodeMirror.fromTextArea(jQuery('#template-data').get(0), {
+let editor = wp.CodeMirror.fromTextArea(jQuery('#template-data').get(0), {
     mode: mixedMode,
     lineWrapping: false,
     lineNumbers: true,

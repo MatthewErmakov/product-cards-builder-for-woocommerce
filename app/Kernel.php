@@ -61,10 +61,11 @@ class Kernel {
     }
 
     public function admin_assets() {
+        wp_enqueue_script( 'wp-codemirror' );
         wp_register_style( 'product-cards-customiser-admin', $this->url . 'public/assets/admin.css', [], filemtime( $this->path . 'public/assets/admin.css' ) );
       
         wp_register_script( 'jquery-ui', 'https://code.jquery.com/ui/1.12.1/jquery-ui.min.js', ['jquery'], '1.12.1', true );
-        wp_register_script( 'product-cards-customiser-admin', $this->url . 'public/assets/admin.min.js', ['jquery', 'wp-tinymce'], filemtime( $this->path . 'public/assets/admin.min.js' ), true );
+        wp_register_script( 'product-cards-customiser-admin', $this->url . 'public/assets/admin.min.js', ['jquery', 'wp-codemirror'], filemtime( $this->path . 'public/assets/admin.min.js' ), true );
 
         wp_enqueue_editor();
         wp_enqueue_style( 'product-cards-customiser-admin' );
