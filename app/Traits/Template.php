@@ -24,7 +24,7 @@ trait Template {
         $result = ob_get_clean();
 
         if ( $output ) {
-            print wp_kses_post( $result );
+            print $result;
         } else {
             return $result;
         }

@@ -13,7 +13,7 @@
 			<div id="template-editor" class="modal">
 				<div class="template-editor-inner">
 					<h3><?php echo esc_html__('Editor', 'product-cards-builder-for-woocommerce') ?></h3>
-					<textarea name="template-data" id="template-data"><?php echo wp_kses( stripslashes( get_option( 'pcbw_template_shortcode', '' ) ) ) ?></textarea>
+					<textarea name="template-data" id="template-data"><?php echo stripslashes( get_option( 'pcbw_template_shortcode', '' ) ) ?></textarea>
 
 					<h2 class="activate-template-wrapper">
 						<button type="button" id="save-template" disabled><?php echo esc_html__('Save Template', 'product-cards-builder-for-woocommerce') ?></button>
