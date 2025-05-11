@@ -18,7 +18,7 @@ class ProductCard extends Front {
 
         if ( ! is_admin() && ! defined('DOING_AJAX') ) {
             add_action( 'wp_footer', function (){
-                echo $this->inline_css_output();
+                echo wp_kses( $this->inline_css_output() );
             });
         } else {
             add_filter( 'pcbw_preview_card_styles', [$this, 'inline_css_output'], 99 );

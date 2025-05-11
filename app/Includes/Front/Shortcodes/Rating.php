@@ -51,7 +51,7 @@ class Rating extends Shortcode {
                 apply_filters( 'pcbw_reviews_caption', sprintf(
                     "%d %s", 
                     esc_html( $reviews_amount ),
-                    $reviews_amount === 1 ? __('review', 'pcbw') : __('reviews', 'pcbw'),
+                    $reviews_amount === 1 ? __('review', 'product-cards-builder-for-woocommerce') : __('reviews', 'product-cards-builder-for-woocommerce'),
                 ), $reviews_amount )
             ) : ''
         );

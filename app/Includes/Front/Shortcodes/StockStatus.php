@@ -20,7 +20,7 @@ class StockStatus extends Shortcode {
         $is_in_stock = $product->is_in_stock();
         $stock_quantity = $product->get_stock_quantity();
 
-        $caption = __('Out of stock', 'pcbw');
+        $caption = __('Out of stock', 'product-cards-builder-for-woocommerce');
 
         $id = ! empty( $atts['id'] ) ? $atts['id'] : '';
 
@@ -37,7 +37,7 @@ class StockStatus extends Shortcode {
         // add caption instock and wrap in specific block
         // otherwise wrap outofstock in specific block
         if ( $is_in_stock ) {
-            $caption = __('In stock', 'pcbw');
+            $caption = __('In stock', 'product-cards-builder-for-woocommerce');
 
             if ( ! empty( $atts['show_quantity'] ) && $atts['show_quantity'] === 'true' && ! is_null( $stock_quantity ) ) {
                 $caption .= ': ' . $stock_quantity;

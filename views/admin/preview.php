@@ -5,4 +5,4 @@
  * @var string $shortcode
  */
 
-echo $shortcode;
+echo wp_kses( $shortcode );

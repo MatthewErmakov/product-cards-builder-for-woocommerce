@@ -50,21 +50,21 @@ class PluginPage extends Admin {
 
     public function preview(): void
     {
-        if ( ! empty( $_POST['nonce'] ) && ! wp_verify_nonce( $_POST['nonce'], 'pcbw_preview' ) ) {
+        if ( ! empty( $_POST['nonce'] ) && ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] ) ), 'pcbw_preview' ) ) {
             wp_send_json_error( [
-                'error' => __('Nonce not verified', 'pcbw')
+                'error' => __('Nonce not verified', 'product-cards-builder-for-woocommerce')
             ], 403 );
         }
 
         $shortcode_content = '';
-        $shortcode = isset( $_POST['shortcode'] ) ? stripcslashes( sanitize_text_field( $_POST['shortcode'] ) ) : '';
+        $shortcode = isset( $_POST['shortcode'] ) ? stripcslashes( sanitize_text_field( wp_unslash( $_POST['shortcode'] ) ) ) : '';
         $product_id = false;
         $styles = '';
 
         global $product;
 
         if ( ! empty ( $_POST['product_id'] ) && $_POST['product_id'] !== 'false' ) {
-            $product_id = $_POST['product_id'];
+            $product_id = sanitize_text_field( wp_unslash( $_POST['product_id'] ) );
         } else {
             $product_id = get_option( 'pcbw_product_to_preview', false );
             $product_id = $product_id === 'false' ? false : $product_id;
@@ -76,11 +76,11 @@ class PluginPage extends Admin {
             $styles = apply_filters( 'pcbw_preview_card_styles', '' );
         } else {
             if ( ! $product_id ) {
-                $shortcode_content = sprintf('<div class="preview message">%s</div>', __('Please, choose a product to preview the template', 'pcbw'));
+                $shortcode_content = sprintf('<div class="preview message">%s</div>', __('Please, choose a product to preview the template', 'product-cards-builder-for-woocommerce'));
             }
             
             if ( empty( $shortcode ) ) {
-                $shortcode_content = sprintf('<div class="preview message">%s</div>', __('Template is empty', 'pcbw'));
+                $shortcode_content = sprintf('<div class="preview message">%s</div>', __('Template is empty', 'product-cards-builder-for-woocommerce'));
             } 
         }
 
@@ -94,27 +94,27 @@ class PluginPage extends Admin {
 
     public function save_template(): void
     {
-        if ( ! empty( $_POST['nonce'] ) && ! wp_verify_nonce( $_POST['nonce'], 'pcbw_save_template' ) ) {
+        if ( ! empty( $_POST['nonce'] ) && ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] ) ), 'pcbw_save_template' ) ) {
             wp_send_json_error( [
-                'error' => __('Nonce not verified', 'pcbw')
+                'error' => __('Nonce not verified', 'product-cards-builder-for-woocommerce')
             ], 403 );
         }
 
-        $data = isset( $_POST['shortcode'] ) ? sanitize_textarea_field( $_POST['shortcode'] ) : '';
-        $product_id = ! empty ( $_POST['product_id'] ) ? $_POST['product_id'] : false;
+        $data = isset( $_POST['shortcode'] ) ? sanitize_textarea_field( wp_unslash( $_POST['shortcode'] ) ) : '';
+        $product_id = ! empty ( $_POST['product_id'] ) ? sanitize_text_field( wp_unslash( $_POST['product_id'] ) ) : false;
 
         if ( update_option( 'pcbw_template_shortcode', $data ) || update_option( 'pcbw_product_to_preview', $product_id ) ) {
             wp_send_json([
                 'data' => [
                     'status' => 'saved',
-                    'message' => __('Template has been successfully saved.', 'pcbw')
+                    'message' => __('Template has been successfully saved.', 'product-cards-builder-for-woocommerce')
                 ]
             ], 200 );
         } else {
             wp_send_json([
                 'data' => [
                     'status' => 'not-saved',
-                    'message' => __('Template was already saved.', 'pcbw')
+                    'message' => __('Template was already saved.', 'product-cards-builder-for-woocommerce')
                 ]
             ], 200 );
         }
@@ -124,7 +124,7 @@ class PluginPage extends Admin {
     {
         if ( 
             empty( $_POST['nonce'] ) || 
-            ( ! empty( $_POST['nonce'] && ! wp_verify_nonce( $_POST['nonce'], 'pcbw_activate_template' ) ) 
+            ( ! empty( $_POST['nonce'] && ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] ) ), 'pcbw_activate_template' ) ) 
         ) ) {
             wp_send_json( [
                 'data' => [
@@ -143,7 +143,7 @@ class PluginPage extends Admin {
             ], 200 );
         }
 
-        $data = $_POST['activate_template'];
+        $data = sanitize_text_field( wp_unslash( $_POST['activate_template'] ) );
 
         $was_updated = update_option( 'pcbw_activate_template', $data );
 
@@ -170,8 +170,8 @@ class PluginPage extends Admin {
     {
         add_submenu_page( 
             'woocommerce', 
-            __('Product Cards Builder', 'pcbw'), 
-            __('Product Cards Builder', 'pcbw'), 
+            __('Product Cards Builder', 'product-cards-builder-for-woocommerce'), 
+            __('Product Cards Builder', 'product-cards-builder-for-woocommerce'), 
             'manage_options', 
             'product-cards-customiser-for-woo', 
             [$this, 'view'],

@@ -10,10 +10,13 @@
  * 
  * Version:              1.0.2
  * Requires at least:    5.4
- * Tested up to:         6.6.2
+ * Tested up to:         6.8
  *
- * Text Domain:          pcbw
+ * Text Domain:          product-cards-builder-for-woocommerce
  * Domain Path:          /languages/
+ * 
+ * License:              GPLv2 or later
+ * License URI:          https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  *
  * @category             Plugin
  * @copyright            Copyright © 2024 Matthew V. Yermakov, Copyright © 2024
